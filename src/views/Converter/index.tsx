@@ -25,48 +25,6 @@ export const FORMAT_SMALL: FormatItem[] = [
 ];
 
 
-/*const parseIso8601_FromLib = (ptVal: string) => {
-    try {
-        let val;
-
-        if (ptVal && ptVal.length) {
-            // TODO: This doesn't validate great, ie it processes "P3Y-dwadwad" as 3 years instead of erroring
-            // Write my own! (Yay, I wanted to do that anyways!)
-            // TODO: Version selector (some versions have rules around weeks and other fields)
-            val = parse(ptVal);
-        } else {
-            val = parse(EMPTY_VAL);
-        }
-
-        console.log(val);
-
-        const parts: string[] = [];
-        const props: (keyof Duration)[] = ["years", "months", "weeks", "days", "hours", "minutes", "seconds"];
-        props.forEach((name) => {
-            const count = val[name];
-
-            if (count) {
-                parts.push(`${count} ${count === 1 ? name.slice(0, -1) : name}`);
-            }
-        });
-
-        switch (parts.length) {
-            case 0:
-                return [null, "Duration is zero"];
-            case 1:
-                return [`Every ${parts[0]}`, null];
-            case 2:
-                return [`Every ${parts[0]} and ${parts[1]}`, null];
-            default:
-                parts[parts.length - 1] = `and ${parts[parts.length - 1]}`;
-                return [`Every ${parts.join(", ")}`, null];
-        }
-    } catch (err) {
-        return [null, err];
-    }
-};*/
-
-
 export const Converter = () => {
     const [ptVal, setPtVal] = useState("");
     const [humanVal, error] = useMemo(() => {
@@ -107,7 +65,7 @@ export const Converter = () => {
 
                 piece = piece.slice(match[0].length);
                 const count = parseFloat(match[1]);
-                parts.push(`${match[1]} ${count === 1 ? item.name.slice(0, -1) : item.name}`);
+                parts.push(`${count} ${count === 1 ? item.name.slice(0, -1) : item.name}`);
             }
 
             if (piece.length) {
@@ -119,7 +77,6 @@ export const Converter = () => {
         if ((err = parseGroup(valPieces[0], FORMAT_LARGE)) !== undefined) return [null, err];
         if ((err = parseGroup(valPieces[1], FORMAT_SMALL)) !== undefined) return [null, err];
 
-        console.log(parts);
         //return "Every three years, six months, four days, twelve hours, thirty minutes, and five seconds.";
         switch (parts.length) {
             case 0:
