@@ -18,12 +18,12 @@
 .result .human {
     font-size: 2rem;
     line-height: 2rem;
-    height: 2rem;
+    min-height: 2rem;
 }
 
 .result .error {
     color: #F51800;
     line-height: 2rem;
-    height: 2rem;
+    min-height: 2rem;
     vertical-align: bottom;
 }
