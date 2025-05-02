@@ -1,12 +1,19 @@
+import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
-import ThemeProvider from "react-bootstrap/ThemeProvider";
 
 import Converter from "./views/Converter";
 import styles from "./App.module.css";
 
+enum AppTab {
+  Duration,
+  Timestamp,
+};
+
 export const App = () => {
+  const [tab, setTab] = useState<AppTab>(AppTab.Duration);
+
   return (
     <Container fluid="md">
       <div className={styles.header}>
@@ -16,11 +23,12 @@ export const App = () => {
       <div className={styles.content}>
         <div className={styles.tabs}>
           <ButtonGroup size="lg">
-            <Button className={`${styles.tab} ${styles.active}`}>Duration</Button>
-            <Button className={`${styles.tab}`}>Timestamp</Button>
+            <Button className={`${styles.tab} ${tab === AppTab.Duration ? styles.active : ""}`} onClick={() => setTab(AppTab.Duration)}>Duration</Button>
+            <Button className={`${styles.tab} ${tab === AppTab.Timestamp ? styles.active : ""}`} onClick={() => setTab(AppTab.Timestamp)}>Timestamp</Button>
           </ButtonGroup>
         </div>
-        <Converter />
+        { tab === AppTab.Duration && <Converter /> }
+        { tab === AppTab.Timestamp && <center><i>Coming soon...</i></center> }
       </div>
       <div className={styles.footer} />
     </Container>
