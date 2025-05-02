@@ -1,0 +1,77 @@
+.header {
+    box-sizing: border-box;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.header .title {
+    margin-bottom: 0.25rem;
+}
+
+.header .subtitle {
+    color: #CCC;
+    font-style: italic;
+}
+
+.header .subtitle a {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+}
+.header .subtitle a:hover {
+    color: #DDD;
+    text-decoration: underline;
+}
+.header .subtitle a:active {
+    color: #EEE;
+}
+
+.footer {
+    padding-bottom: 1em;
+}
+
+
+
+.tabs {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+
+.tab:global(.btn) {
+    width: 180px;
+    min-width: auto;
+}
+
+.tab:global(.btn) {
+    background: var(--bs-body-bg);
+    border-color: var(--bs-body-color);
+    color: var(--bs-body-color);
+}
+.tab:global(.btn):hover {
+    background: #444;
+    border-color: #FFF;
+    color: var(--bs-body-color);
+}
+.tab:global(.btn):active {
+    background: #555;
+    border-color: #FFF;
+    color: var(--bs-body-color);
+}
+
+.tab:global(.btn).active {
+    background: #DDD;
+    border-color: #DDD;
+    color: var(--bs-body-bg);
+}
+.tab:global(.btn).active:hover {
+    background: #FFF;
+    border-color: #FFF;
+    color: var(--bs-body-bg);
+}
+.tab:global(.btn).active:active {
+    background: #FFF;
+    border-color: #FFF;
+    color: #000;
+}

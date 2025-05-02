@@ -1,0 +1,29 @@
+.container {
+    text-align: center;
+}
+
+.input {
+    font-size: 2em;
+    text-align: center;
+}
+.input::placeholder {
+    color: #AAA;
+}
+
+.result {
+    margin-top: 100px;
+    margin-bottom: 1em;
+}
+
+.result .human {
+    font-size: 2rem;
+    line-height: 2rem;
+    height: 2rem;
+}
+
+.result .error {
+    color: #F51800;
+    line-height: 2rem;
+    height: 2rem;
+    vertical-align: bottom;
+}

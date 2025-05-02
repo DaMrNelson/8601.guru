@@ -1,0 +1,17 @@
+:root {
+    --bs-body-color: #EEE;
+    --bs-body-bg: #333;
+
+    --primary: #887536;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+html, body, #root {
+    height: 100%;
+}
